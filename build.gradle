@@ -1,0 +1,110 @@
+/**
+ ******************  Script Configuration ******************
+ */
+buildscript {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+
+        maven {
+            url "https://sandec.jfrog.io/artifactory/repo"
+        }
+
+
+    }
+
+    dependencies {
+        classpath 'com.sandec.jpro:jpro-plugin-gradle:2022.1.5'
+        classpath 'org.openjfx:javafx-plugin:0.0.11'
+        classpath 'org.javamodularity:moduleplugin:1.8.10'
+        // workaround for https://discuss.gradle.org/t/unable-to-build-project-with-gradle-7-3-1-on-java-17/41601
+    }
+}
+
+
+/**
+ ******************  Java Configuration ******************
+ */
+
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.10'
+    id "de.jjohannes.extra-java-module-info" version "0.11"
+}
+
+compileJava {
+    modularity.inferModulePath.set(true)
+    sourceCompatibility = 16
+    targetCompatibility = 16
+    options.forkOptions.jvmArgs += "--add-opens=javafx.controls/javafx.scene.control.skin=org.controlsfx.controls"
+}
+
+repositories {
+    mavenCentral()
+    gradlePluginPortal()
+}
+
+javafx {
+    version = '17.0.2'
+    modules = ['javafx.base', 'javafx.graphics', 'javafx.controls', 'javafx.fxml', 'javafx.media', 'javafx.web']
+}
+
+dependencies {
+    implementation('org.apache.poi:poi-ooxml:5.2.2') {
+        exclude(group: 'org.apache.poi.poi')
+    }
+
+    implementation 'org.controlsfx:controlsfx:11.1.1'
+
+    implementation('com.dlsc.formsfx:formsfx-core:11.5.0') {
+        exclude(group: 'org.openjfx')
+    }
+
+    implementation('org.apache.commons:commons-lang3:3.12.0')
+    implementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+extraJavaModuleInfo {
+    //This does not have to be a complete description (e.g. here 'org.apache.commons.collections' does not export anything here).
+    //It only needs to be good enough to work in the context of this application we are building.
+    module('commons-math3-3.6.1.jar', 'org.apache.commons', '3.6.1')
+    module('SparseBitSet-1.2.jar', 'org.zaxxer', '1.2')
+}
+
+/**
+ ******************  jpro Configuration ******************
+ */
+apply plugin: 'com.sandec.jpro'
+
+
+/**
+ * App Main Class
+ */
+application {
+    mainModule = 'headless.entertainment.adj'
+    mainClass = 'headless.entertainment.adj.Start'
+}
+
+/**
+ * jpro settings
+ */
+jpro {
+
+    //Shows server-memory
+    JVMArgs << '-Xmx1000m'
+    JVMArgs << '--add-opens=javafx.controls/javafx.scene.control.skin=org.controlsfx.controls'
+
+    //jpro server port
+    port = 80
+
+}
+
+
+
+
+

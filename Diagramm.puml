@@ -1,0 +1,171 @@
+@startuml
+!theme spacelab
+
+class headless.entertainment.adj.Model.LDAPTreeView {
+~ void generateLDAPTreeView(TreeItem<String>,ArrayList<String[]>)
+- TreeItem<String> searchItem(TreeItem<String>,String)
+}
+class headless.entertainment.adj.Controller.Ctrl_Login {
+- VBox fx_MainBox
+- Button fx_LgnBtn
+- PasswordField fx_password
+- TextField fx_username
+- Label fx_invalidLoginCredentials
+- HostServices hostServices
+- WebAPI webAPI
+- boolean alreadyCaught
+- int wrongCounter
+- ADJ_Translator translator
++ void initialize(URL,ResourceBundle)
+~ void onKeyPressed(KeyEvent)
+~ void onLoginButtonClick(ActionEvent)
++ void initView()
++ void setHostServices(HostServices)
++ void setWebAPI(WebAPI)
+}
+class headless.entertainment.adj.Controller.Ctrl_ADJ {
+- VBox fx_TablePane
+- ScrollPane fx_ScrollPane
+- MenuItem fx_LogOut
+- SeparatorMenuItem fx_Separator
+- Menu fx_Menu
+- Client_LDAP client_ldap
+- Client_ITOP client_itop
+- TableView<Attributes> useTable
+- TreeItem<String> lastTreeItem
+- HostServices hostServices
+- WebAPI webAPI
+- ADJ_Translator translator
+- double screenMiddleX
+- double screenMiddleY
+- void OnAction_Documentation(ActionEvent)
+- void OnAction_Export(ActionEvent)
+- void OnAction_LogOut(ActionEvent)
+- void OnAction_Reload(ActionEvent)
+- void OnAction_Report(ActionEvent)
++ void initialize(Client_LDAP,HostServices,ADJ_Translator)
++ void generateTable()
++ void internationalize()
++ void UserDelete(ObservableList<Attributes>)
++ void UserAdd()
++ VBox getFx_TablePane()
++ ScrollPane getFx_ScrollPane()
++ Client_LDAP getClient_ldap()
++ TreeItem<String> getLastTreeItem()
++ double getScreenMiddleX()
++ double getScreenMiddleY()
++ ADJ_Translator getTranslator()
++ void setUseTable(TableView<Attributes>)
++ void setLastTreeItem(TreeItem<String>)
+}
+class headless.entertainment.adj.Handler.ADJ_Translator {
+- {static} String RES_BUNDLE_PATH
+- ArrayList<Locale> supportedLanguage
+- ObjectProperty<Locale> locale
++ String get(String,Object)
++ StringBinding getStringBinding(String,Object)
++ Locale getDefaultLocale()
++ ArrayList<Locale> getSupportedLanguages()
++ Locale getLanguage()
++ void setLanguage(Locale)
+}
+class headless.entertainment.adj.Client.Client_ITOP {
+}
+class headless.entertainment.adj.Model.LDAPTableView {
+- ADJ_Translator translator
+- Ctrl_ADJ controller
+- boolean useable
++ void generateLDAPTableView(TreeItem<String>)
+- void generateTableColumns(StringBuilder,TableView<Attributes>)
+- void addContextMenu(TableView<Attributes>)
+}
+class headless.entertainment.adj.Model.LDAPWindow {
+- LDAPTableView LDAPTableView
+- Ctrl_ADJ controller
++ Enum_CstmDiag generateLDAPWindow()
+- ArrayList<String[]> sortOrganizationUnits(ArrayList<String>)
+~ Ctrl_ADJ getController()
+}
+enum headless.entertainment.adj.Enums.Enum_CstmDiag {
++  SUCCESS
++  ERROR
++  INFO
++  WARNING
+- String imagePath
+- String message
++ String getImagePath()
++ void setMessage(String)
++ String getMessage()
+}
+class headless.entertainment.adj.Model.ADJ_Alert {
+- Ctrl_CustomDialogPopup ctrl_customDialogPopup
+- ADJ_Translator translator
++ BooleanProperty getConfirmationProperty()
+}
+class headless.entertainment.adj.Client.Client_LDAP {
+- DirContext context
+- SearchControls searchCtrls
+- String username
+- ADJ_Translator translator
++ Enum_CstmDiag addUser(Attributes,String)
++ Enum_CstmDiag delUser(String,String)
++ NamingEnumeration<SearchResult> search(String,String)
++ Enum_CstmDiag isMemberOf(String)
+}
+class headless.entertainment.adj.Start {
++ void start(Stage)
++ {static} void main(String[])
++ void stop()
+- {static} void checkForExportDirectories(File)
+- {static} void deleteExportFiles(File)
+}
+class headless.entertainment.adj.Settings.Config << (S,#FF7700) Singleton >> {
+- {static} String CFG_PATH
+- {static} Config instance
+- {static} Properties CFG_PROPERTIES
++ {static} Config getInstance()
++ String getDomain()
++ String getInit_Context_Factory()
++ String getProvider_Url()
++ String getLDAP_Admin_Group_Filter()
++ String getGroup_Filter()
++ String getPermitted_Attributes()
++ String getRequired_User_Add_Attributes()
++ String getOptional_User_Add_Attributes()
+}
+class headless.entertainment.adj.Controller.DialogControllers.Ctrl_AddUser {
+- Button fx_ButtonAddUser
+- HBox fx_ButtonBox
+- VBox fx_UserAddOptionsBox
+- Ctrl_ADJ controller
+- Popup pop
+- Attributes userAttributes
+- void onCancel(ActionEvent)
+- void onUserAdd(ActionEvent)
++ void initDialog(Ctrl_ADJ,Popup)
+- FormRenderer createForm(String[],String[])
+}
+class headless.entertainment.adj.Controller.DialogControllers.Ctrl_CustomDialogPopup {
+- Button fx_ButtonConfirm
++ AnchorPane fx_DialogPane
+- Text fx_Caption
+- Text fx_Description
+- ImageView fx_Icon
+- Popup pop
+- BooleanProperty isConfirmed
+~ void onCancel(ActionEvent)
+~ void onConfirm(ActionEvent)
++ void initCstmDiag(Popup)
++ BooleanProperty getIsConfirmed()
++ void setFx_Description(String)
++ void setFx_Caption(String)
++ void setFx_Icon(Enum_CstmDiag)
++ Button getFx_ButtonCancel()
++ Button getFx_ButtonConfirm()
+}
+
+
+javafx.fxml.Initializable <|.. headless.entertainment.adj.Controller.Ctrl_Login
+javafx.stage.Popup <|-- headless.entertainment.adj.Model.ADJ_Alert
+com.jpro.webapi.JProApplication <|-- headless.entertainment.adj.Start
+@enduml

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2022. Headless-Entertainment - Adrian Domenic Walter Weidig. All rights reserved.
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ Copies, Modifications, Merges, Publications, Distributions or Sublicense of the
+  ~ Software has to grant the same permissions as stated in this license.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  ~
+  -->
+
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<!-- WATCH OUT: Only edit those settings and set up the program if you know everything about your LDAP service.
+                Don't use /n or normal paragraphs otherwise this file cannot be read normally.
+                FOR ADMINS: After editing this file make this file read only or even better only readable for
+                this program! -->
+
+<properties>
+    <!-- Your LDAP Domain
+    Example: DC=top,DC=secret -->
+    <entry key="Domain">DC=top,DC=secret</entry>
+
+    <!-- If you don't know which to choose. Don't change it.
+     Default: com.sun.jndi.ldap.LdapCtxFactory -->
+    <entry key="Init_Context_Factory">com.sun.jndi.ldap.LdapCtxFactory</entry>
+
+    <!-- The network address of you LDAP service.
+    Example: ldap://name.top.secret:389 -->
+    <entry key="Provider_Url">ldap://sdc10201.top.secret:389</entry>
+
+    <!-- The filter used to look whether a user login in is member of this ONE group and is allowed to write inside LDAP.
+     You should use a domain admin like group or a special group for using this part. If you want to show write options
+     for all users and get notified if someone has no rights after execution just let this field empty.
+     Example: CN=DomainAdmin,OU=Group,OU=Admin,DC=top,DC=secret-->
+    <entry key="LDAP_Admin_Group_Filter">CN=GS_DomänenAdmin,OU=Gruppen,OU=Administration,OU=Testnetz,DC=top,DC=secret</entry>
+
+    <!-- Insert all specific LDAP OUs that should NOT be listed in the generated TreeView.
+      Example: OU=TEST means that NOTHING connected to the organizational Unit TEST will be shown. Separate different
+      filter options with a comma.-->
+    <entry key="Group_Filter">OU=Domain Controllers,OU=Microsoft Exchange Security Groups,OU=Server,OU=TEST_GPO,OU=Dienstkonten,OU=Computer</entry>
+
+    <!-- Insert all specific LDAP attributes that SHOULD be listed in the Table.
+     Example: samAccountName means, that there will be a row containing all samAccountNames. Separate different filter
+     options with a comma.
+     Example: name,sAMAccountName,givenName,sn -->
+    <entry key="Permitted_Attributes">name,sAMAccountName,givenName,sn,userPrincipalName,mail,gidNumber,uidNumber,description,expirationTime</entry>
+
+    <!-- Insert all attributes an Administrator has to input when adding a new User separated by comma..
+     Example: mail,givenName,customLDAPSchemeAttribute,...  -->
+    <entry key="Required_User_Add_Attributes">name,givenName</entry>
+
+    <!-- Insert all attributes an Administrator CAN add optionally when adding a new User separated by comma..
+     Example: description,uidNumber,OwnOptionalLDAPSchemeAttribute,... -->
+    <entry key="Optional_User_Add_Attributes">mail</entry>
+</properties>
