@@ -42,28 +42,28 @@
 
     <!-- The network address of you LDAP service.
     Example: ldap://name.top.secret:389 -->
-    <entry key="Provider_Url">ldap://sdc10201.top.secret:389</entry>
+    <entry key="Provider_Url">ldap://name.top.secret:389</entry>
 
     <!-- The filter used to look whether a user login in is member of this ONE group and is allowed to write inside LDAP.
      You should use a domain admin like group or a special group for using this part. If you want to show write options
      for all users and get notified if someone has no rights after execution just let this field empty.
      Example: CN=DomainAdmin,OU=Group,OU=Admin,DC=top,DC=secret-->
-    <entry key="LDAP_Admin_Group_Filter">CN=GS_DomänenAdmin,OU=Gruppen,OU=Administration,OU=Testnetz,DC=top,DC=secret</entry>
+    <entry key="LDAP_Admin_Group_Filter">CN=DomainAdmin,OU=Group,OU=Admin,DC=top,DC=secret</entry>
 
     <!-- Insert all specific LDAP OUs that should NOT be listed in the generated TreeView.
       Example: OU=TEST means that NOTHING connected to the organizational Unit TEST will be shown. Separate different
       filter options with a comma.-->
-    <entry key="Group_Filter">OU=Domain Controllers,OU=Microsoft Exchange Security Groups,OU=Server,OU=TEST_GPO,OU=Dienstkonten,OU=Computer</entry>
+    <entry key="Group_Filter">OU=Domain Controllers,OU=Microsoft Exchange Security Groups</entry>
 
     <!-- Insert all specific LDAP attributes that SHOULD be listed in the Table.
      Example: samAccountName means, that there will be a row containing all samAccountNames. Separate different filter
      options with a comma.
      Example: name,sAMAccountName,givenName,sn -->
-    <entry key="Permitted_Attributes">name,sAMAccountName,givenName,sn,userPrincipalName,mail,gidNumber,uidNumber,description,expirationTime</entry>
+    <entry key="Permitted_Attributes">name,sAMAccountName,givenName,sn</entry>
 
     <!-- Insert all attributes an Administrator has to input when adding a new User separated by comma..
      Example: mail,givenName,customLDAPSchemeAttribute,...  -->
-    <entry key="Required_User_Add_Attributes">name,givenName</entry>
+    <entry key="Required_User_Add_Attributes">mail,givenName,customLDAPSchemeAttribute</entry>
 
     <!-- Insert all attributes an Administrator CAN add optionally when adding a new User separated by comma..
      Example: description,uidNumber,OwnOptionalLDAPSchemeAttribute,... -->
