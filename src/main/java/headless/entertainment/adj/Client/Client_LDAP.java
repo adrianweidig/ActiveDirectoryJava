@@ -58,8 +58,9 @@ public class Client_LDAP {
      * Instantiates a new Client ldap with given
      * password, username.
      *
-     * @param password the LDAP password
-     * @param username the LDAP username
+     * @param password   the LDAP password
+     * @param username   the LDAP username
+     * @param translator the translator
      * @throws NamingException if password or username is not existing / wrong.
      * @since 0.1
      */
@@ -143,7 +144,7 @@ public class Client_LDAP {
      * @param filter            the filter
      * @return The results.
      * @throws NamingException if a naming exception is encountered
-     * @see javax.naming.directory.DirContext#search(String, String, SearchControls)
+     * @see javax.naming.directory.DirContext#search(String, String, SearchControls) javax.naming.directory.DirContext#search(String, String, SearchControls)
      * @since 0.1
      */
     public NamingEnumeration<SearchResult> search(String distinguishedName, String filter) throws NamingException {
@@ -158,7 +159,7 @@ public class Client_LDAP {
      *
      * @param ouGroup the OU you want to check
      * @return whether the user has admin rights or not.
-     * @see #search(String, String)
+     * @see #search(String, String) #search(String, String)
      * @since 0.1
      */
     public Enum_CstmDiag isMemberOf(String ouGroup) {

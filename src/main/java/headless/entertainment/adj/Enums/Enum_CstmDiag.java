@@ -70,14 +70,35 @@ public enum Enum_CstmDiag {
     /* ------ Getter and Setter  ------ */
     /* -------------------------------- */
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets image path.
+     *
+     * @return the image path
+     * @since 0.1
+     */
     public String getImagePath() {
         return this.imagePath;
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Sets message.
+     *
+     * @param message the message
+     * @since 0.1
+     */
     public void setMessage(final String message) {
         this.message = message;
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets message.
+     *
+     * @return the message
+     * @since 0.1
+     */
     public String getMessage() {
         return this.message;
     }

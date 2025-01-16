@@ -58,6 +58,7 @@ public class ADJ_Alert extends Popup {
      * @param enum_cstmDiag the enum type
      * @param caption       the caption
      * @param content       the content
+     * @param translator    the translator
      * @since 0.1
      */
     public ADJ_Alert(final Enum_CstmDiag enum_cstmDiag, final String caption, final String content, final ADJ_Translator translator) {
@@ -92,6 +93,7 @@ public class ADJ_Alert extends Popup {
      * the Enum itself.
      *
      * @param enum_cstmDiag the enum type
+     * @param translator    the translator
      * @since 0.1
      */
     public ADJ_Alert(final Enum_CstmDiag enum_cstmDiag, final ADJ_Translator translator) {

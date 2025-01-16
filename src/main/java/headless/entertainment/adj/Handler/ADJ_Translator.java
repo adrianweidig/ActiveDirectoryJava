@@ -99,15 +99,30 @@ public class ADJ_Translator {
      * <p>
      *
      * @return System default language or English
+     * @since 0.1
      */
     public Locale getDefaultLocale() {
         return this.supportedLanguage.contains(Locale.getDefault()) ? Locale.getDefault() : Locale.ENGLISH;
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets language.
+     *
+     * @return the language
+     * @since 0.1
+     */
     public Locale getLanguage() {
         return this.locale.get();
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Sets language.
+     *
+     * @param locale the locale
+     * @since 0.1
+     */
     public void setLanguage(final Locale locale) {
         this.locale.set(locale);
     }

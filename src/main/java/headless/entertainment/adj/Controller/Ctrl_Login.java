@@ -276,13 +276,27 @@ public class Ctrl_Login implements Initializable {
     /* ------ Getter and Setter  ------ */
     /* -------------------------------- */
 
-    // We don't want those things to be reinitialized
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Sets host services.
+     *
+     * @param hostServices the host services
+     * @since 0.1
+     */
+// We don't want those things to be reinitialized
     public void setHostServices(final HostServices hostServices) {
         if (this.hostServices == null) {
             this.hostServices = hostServices;
         }
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Sets web api.
+     *
+     * @param webAPI the web api
+     * @since 0.1
+     */
     public void setWebAPI(final WebAPI webAPI) {
         if (this.webAPI == null) {
             this.webAPI = webAPI;

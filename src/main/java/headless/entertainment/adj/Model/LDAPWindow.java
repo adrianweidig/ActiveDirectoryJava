@@ -55,6 +55,13 @@ public class LDAPWindow {
 
     private final Ctrl_ADJ controller;
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Instantiates a new Ldap window.
+     *
+     * @param controller the controller
+     * @since 0.1
+     */
     public LDAPWindow(final Ctrl_ADJ controller) {
         this.controller = controller;
         this.LDAPTableView = new LDAPTableView(this);
@@ -70,7 +77,7 @@ public class LDAPWindow {
      * part.
      *
      * @return CstmDiag Enum for Logging or Dialog purposes
-     * @see javax.naming.directory.DirContext#search(String, String, SearchControls)
+     * @see javax.naming.directory.DirContext#search(String, String, SearchControls) javax.naming.directory.DirContext#search(String, String, SearchControls)
      * @since 0.1
      */
     public Enum_CstmDiag generateLDAPWindow() {
@@ -194,6 +201,13 @@ public class LDAPWindow {
     /* ------ Setter und Getter   ----- */
     /* -------------------------------- */
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets controller.
+     *
+     * @return the controller
+     * @since 0.1
+     */
     Ctrl_ADJ getController() {
         return this.controller;
     }

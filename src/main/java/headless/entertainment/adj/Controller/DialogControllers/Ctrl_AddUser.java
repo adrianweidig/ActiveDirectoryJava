@@ -112,7 +112,7 @@ public class Ctrl_AddUser {
      * a new user.
      *
      * @param event the event activating the button
-     * @see headless.entertainment.adj.Client.Client_LDAP#addUser(Attributes, String)
+     * @see headless.entertainment.adj.Client.Client_LDAP#addUser(Attributes, String) headless.entertainment.adj.Client.Client_LDAP#addUser(Attributes, String)
      * @since 0.1
      */
     @FXML

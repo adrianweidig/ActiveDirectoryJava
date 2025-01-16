@@ -63,38 +63,101 @@ public class Config {
     }
 
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets instance.
+     *
+     * @return the instance
+     * @since 0.1
+     */
     public static Config getInstance() {
         return instance == null ? new Config() : instance;
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets domain.
+     *
+     * @return the domain
+     * @since 0.1
+     */
     public String getDomain() {
         return CFG_PROPERTIES.getProperty("Domain");
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets init context factory.
+     *
+     * @return the init context factory
+     * @since 0.1
+     */
     public String getInit_Context_Factory() {
         return CFG_PROPERTIES.getProperty("Init_Context_Factory");
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets provider url.
+     *
+     * @return the provider url
+     * @since 0.1
+     */
     public String getProvider_Url() {
         return CFG_PROPERTIES.getProperty("Provider_Url");
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets ldap admin group filter.
+     *
+     * @return the ldap admin group filter
+     * @since 0.1
+     */
     public String getLDAP_Admin_Group_Filter() {
         return CFG_PROPERTIES.getProperty("LDAP_Admin_Group_Filter");
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets group filter.
+     *
+     * @return the group filter
+     * @since 0.1
+     */
     public String getGroup_Filter() {
         return CFG_PROPERTIES.getProperty("Group_Filter");
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets permitted attributes.
+     *
+     * @return the permitted attributes
+     * @since 0.1
+     */
     public String getPermitted_Attributes() {
         return CFG_PROPERTIES.getProperty("Permitted_Attributes");
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets required user add attributes.
+     *
+     * @return the required user add attributes
+     * @since 0.1
+     */
     public String getRequired_User_Add_Attributes() {
         return CFG_PROPERTIES.getProperty("Required_User_Add_Attributes");
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets optional user add attributes.
+     *
+     * @return the optional user add attributes
+     * @since 0.1
+     */
     public String getOptional_User_Add_Attributes() {
         return CFG_PROPERTIES.getProperty("Optional_User_Add_Attributes");
     }

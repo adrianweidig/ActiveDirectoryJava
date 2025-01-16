@@ -249,7 +249,7 @@ public class Ctrl_ADJ {
      * but collapsing completely.
      *
      * @param event the event when menuItem was selected
-     * @see javax.naming.directory.DirContext#search(String, String, SearchControls)
+     * @see javax.naming.directory.DirContext#search(String, String, SearchControls) javax.naming.directory.DirContext#search(String, String, SearchControls)
      * @since 0.1
      */
     @FXML
@@ -302,6 +302,7 @@ public class Ctrl_ADJ {
      * @param client_ldap  the used LDAP client
      * @param hostServices the application hostServices
      * @param translator   the global translator class
+     * @since 0.1
      */
     public void initialize(final Client_LDAP client_ldap, final HostServices hostServices, final ADJ_Translator translator) {
         this.client_ldap = client_ldap;
@@ -456,38 +457,101 @@ public class Ctrl_ADJ {
     /* ------ Getter and Setter  ------ */
     /* -------------------------------- */
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets fx table pane.
+     *
+     * @return the fx table pane
+     * @since 0.1
+     */
     public VBox getFx_TablePane() {
         return this.fx_TablePane;
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets fx scroll pane.
+     *
+     * @return the fx scroll pane
+     * @since 0.1
+     */
     public ScrollPane getFx_ScrollPane() {
         return this.fx_ScrollPane;
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets client ldap.
+     *
+     * @return the client ldap
+     * @since 0.1
+     */
     public Client_LDAP getClient_ldap() {
         return this.client_ldap;
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets last tree item.
+     *
+     * @return the last tree item
+     * @since 0.1
+     */
     public TreeItem<String> getLastTreeItem() {
         return this.lastTreeItem;
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets screen middle x.
+     *
+     * @return the screen middle x
+     * @since 0.1
+     */
     public double getScreenMiddleX() {
         return this.screenMiddleX;
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets screen middle y.
+     *
+     * @return the screen middle y
+     * @since 0.1
+     */
     public double getScreenMiddleY() {
         return this.screenMiddleY;
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets translator.
+     *
+     * @return the translator
+     * @since 0.1
+     */
     public ADJ_Translator getTranslator() {
         return this.translator;
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Sets use table.
+     *
+     * @param useTable the use table
+     * @since 0.1
+     */
     public void setUseTable(TableView<Attributes> useTable) {
         this.useTable = useTable;
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Sets last tree item.
+     *
+     * @param lastTreeItem the last tree item
+     * @since 0.1
+     */
     public void setLastTreeItem(TreeItem<String> lastTreeItem) {
         this.lastTreeItem = lastTreeItem;
     }

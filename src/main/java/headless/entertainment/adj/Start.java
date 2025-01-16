@@ -91,6 +91,13 @@ public class Start extends JProApplication {
         launch(args);
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Stop.
+     *
+     * @throws Exception the exception
+     * @since 0.1
+     */
     @Override
     public void stop() throws Exception {
         super.stop();
@@ -110,6 +117,7 @@ public class Start extends JProApplication {
      * There should be none!
      *
      * @param dir the dir that has to be inspected
+     * @since 0.1
      */
     private static void checkForExportDirectories(File dir) {
         File[] files = dir.listFiles();
@@ -130,6 +138,7 @@ public class Start extends JProApplication {
      * There should be none subdirectories!
      *
      * @param dir the dir / file that has to be inspected
+     * @since 0.1
      */
     private static void deleteExportFiles(File dir) {
         File[] files = dir.listFiles();

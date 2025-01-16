@@ -125,26 +125,68 @@ public class Ctrl_CustomDialogPopup {
     /* ------ Getter and Setter  ------ */
     /* -------------------------------- */
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets is confirmed.
+     *
+     * @return the is confirmed
+     * @since 0.1
+     */
     public BooleanProperty getIsConfirmed() {
         return this.isConfirmed;
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Sets fx description.
+     *
+     * @param fx_Description the fx description
+     * @since 0.1
+     */
     public void setFx_Description(String fx_Description) {
         this.fx_Description.setText(fx_Description);
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Sets fx caption.
+     *
+     * @param fx_Caption the fx caption
+     * @since 0.1
+     */
     public void setFx_Caption(String fx_Caption) {
         this.fx_Caption.setText(fx_Caption);
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Sets fx icon.
+     *
+     * @param diagType the diag type
+     * @since 0.1
+     */
     public void setFx_Icon(Enum_CstmDiag diagType) {
         this.fx_Icon.setImage(new Image(diagType.getImagePath()));
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets fx button cancel.
+     *
+     * @return the fx button cancel
+     * @since 0.1
+     */
     public Button getFx_ButtonCancel() {
         return this.fx_ButtonCancel;
     }
 
+    /**
+     * TODO: EDIT JAVA-DOC
+     * Gets fx button confirm.
+     *
+     * @return the fx button confirm
+     * @since 0.1
+     */
     public Button getFx_ButtonConfirm() {
         return this.fx_ButtonConfirm;
     }
